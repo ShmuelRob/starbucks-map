@@ -1,6 +1,6 @@
-import Branch from "../models/branch.model";
-import countryOption from "../models/countryOption.model";
-import getAllBranches from "./getAllBranches";
+import Branch from "../models/branch.model.ts";
+import countryOption from "../models/countryOption.model.ts";
+import getAllBranches from "./getBranches";
 
 
 async function getCountries(branches?: Branch[]): Promise<countryOption[]> {

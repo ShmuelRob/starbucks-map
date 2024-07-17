@@ -15,6 +15,7 @@ function getCountryAlphaCode(key: alphaCode): string | undefined {
 }
 
 const countryAlphaCodes = {
+    "ALL": "ALL",
     "AF": "AFG",
     "AL": "ALB",
     "DZ": "DZA",
