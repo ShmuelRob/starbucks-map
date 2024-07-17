@@ -30,8 +30,6 @@ Ensure you have the following installed on your machine:
 
 1. Clone the repository:
 
-   sh
-
    Copy code
 
    `git clone https://github.com/yourusername/starbucks-map.git cd starbucks-map`
@@ -39,15 +37,11 @@ Ensure you have the following installed on your machine:
 
    Using npm:
 
-   sh
-
    Copy code
 
    `npm install`
 
    Using yarn:
-
-   sh
 
    Copy code
 
@@ -59,23 +53,17 @@ To run the project locally, use Vite's development server.
 
 Using npm:
 
-sh
-
 Copy code
 
 `npm run dev`
 
 Using yarn:
 
-sh
-
 Copy code
 
 `yarn dev`
 
 After running the above command, you should see an output similar to:
-
-sh
 
 Copy code
 
@@ -92,15 +80,11 @@ To create a production build of the project, use the following command:
 
 Using npm:
 
-sh
-
 Copy code
 
 `npm run build`
 
 Using yarn:
-
-sh
 
 Copy code
 
