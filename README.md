@@ -55,10 +55,15 @@ Using yarn:
 
 After running the above command, you should see an output similar to:
 
- `VITE vX.X.X  ready in X ms
+
+```
+VITE vX.X.X  ready in X ms
 
   ➜  Local:   http://localhost:3000/
-  ➜  Network: use --host to expose`
+  ➜  Network: use --host to expose
+```
+
+ 
 
 Open your browser and navigate to `http://localhost:3000/` to see the application in action.
 
