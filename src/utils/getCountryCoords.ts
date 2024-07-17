@@ -17,9 +17,11 @@ type countryCoords =  {
 
 async function getCountryCoords(countryAlpha2: alphaCode): Promise<countryCoords | null>  {
     try {
+        // fetch the country boundaries from the API
         const countries = (await axios.get(import.meta.env.VITE_COUNTRY_BOUNDARIES_URL)).data.features as countryCoords[];
         const country = countries.find((c: countryCoords) => c.id == getCountryAlphaCode(countryAlpha2));
         if (country) {
+            // return the country's coordinates
             return country;
         } else {
             return null

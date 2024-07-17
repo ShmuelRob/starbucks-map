@@ -6,18 +6,21 @@ import { createLayer, createMap, getAllStores, getStoresByCountry } from './serv
 import { alphaCode } from './utils/getCountryAlphaCode';
 
 
+// get all branches
 const branches = await getBranches();
-// const map = new OlMap(branches);
+
+// create a map and layer
 const map = createMap();
 const layer = createLayer();
 map.addLayer(layer);
 getAllStores(layer, branches);
 
+// get all countries
 const countryList = await getCountries();
 
 function getStoresByCountryWrapper(countryCode: alphaCode) {
     return getStoresByCountry(layer, branches, countryCode);
 }
 
-
+// create a select element with all countries, and call getStoresByCountry when the selected country changes as callback
 document.getElementById('country-select-div')?.appendChild(createSelect(countryList, getStoresByCountryWrapper));

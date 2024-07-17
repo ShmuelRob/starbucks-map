@@ -1,6 +1,7 @@
 export type alphaCode = keyof typeof countryAlphaCodes | undefined
 
 function isAlphaCode(key: string | undefined): key is alphaCode {
+    // check if the key is a valid alpha code
     if (!key) {
         return true;
     }
@@ -14,6 +15,7 @@ function getCountryAlphaCode(key: alphaCode): string | undefined {
     return countryAlphaCodes[key] as string | undefined;
 }
 
+// a mapping of country alpha-2 codes to alpha-3 codes
 const countryAlphaCodes = {
     "ALL": "ALL",
     "AF": "AFG",
