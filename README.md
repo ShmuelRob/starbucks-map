@@ -65,7 +65,7 @@ VITE vX.X.X  ready in X ms
 
  
 
-Open your browser and navigate to `http://localhost:3000/` to see the application in action.
+Open your browser and navigate to `http://localhost:3000/` to see the application in action (or the port given to you).
 
 ### Building for Production
 
@@ -85,12 +85,12 @@ Project Structure
 -----------------
 
 - `src/` - Contains the source code for the application
-  - `components/` - React components
+  - `models/` - the models and types for the project
   - `data/` - GeoJSON data for Starbucks stores
   - `utils/` - Utility functions and helpers
+  - `services` - the open layer services
 - `public/` - Static assets
 - `index.html` - The main HTML file
-- `vite.config.ts` - Vite configuration file
 - `tsconfig.json` - TypeScript configuration file
 
 Dependencies
@@ -115,7 +115,7 @@ This project is licensed under the MIT License.
 Contact
 -------
 
-For any inquiries or support, please contact `yourname@example.com`.
+For any inquiries or support, please contact me via github.
 
 ---
 
