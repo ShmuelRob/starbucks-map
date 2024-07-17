@@ -6,6 +6,8 @@
 // import { Geometry, Point } from "ol/geom";
 // import { Feature } from "ol";
 // import { fromLonLat } from "ol/proj";
+// import { point, polygon, booleanPointInPolygon } from "@turf/turf";
+// import getCountries from './src/api/getCountries';
 
 
 // document.addEventListener("DOMContentLoaded", function() {
@@ -50,18 +52,13 @@
 //         map.addLayer(vectorLayer);
 //     }
 
-//     // Fetch country list and populate select box
-//     async function fetchCountryList() {
-//         const response = await fetch('URL_TO_FETCH_COUNTRY_LIST'); // Replace with the actual URL
-//         const data = await response.json();
-//         return data.countries;
-//     }
+    
 
 //     async function init() {
 //         const locations = await fetchStarbucksLocations();
 //         addLocationsToMap(locations);
 
-//         const countries = await fetchCountryList();
+//         const countries = await getCountries();
 //         countries.forEach(country => {
 //             const option = document.createElement('option');
 //             option.value = country.name;
@@ -72,9 +69,9 @@
 //         countrySelect.addEventListener('change', function() {
 //             const selectedCountry = this.value;
 //             const filteredLocations = locations.filter(location => {
-//                 const point = turf.point([location.longitude, location.latitude]);
-//                 const polygon = turf.polygon(selectedCountry.geometry.coordinates);
-//                 return turf.booleanPointInPolygon(point, polygon);
+//                 const locationPoint = point([location.longitude, location.latitude]);
+//                 const countryPolygon = polygon(selectedCountry.geometry.coordinates);
+//                 return booleanPointInPolygon(locationPoint, countryPolygon);
 //             });
 //             addLocationsToMap(filteredLocations);
 //         });

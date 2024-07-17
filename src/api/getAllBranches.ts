@@ -3,7 +3,7 @@ import Branch from '../models/branch.model';
 
 const url = import.meta.env.VITE_API_URL;
 
-async function getAll(): Promise<Branch[]> {
+async function getAllBranches(): Promise<Branch[]> {
     try {
         const response = await axios.get(url);
         return response.data as Branch[];
@@ -13,4 +13,4 @@ async function getAll(): Promise<Branch[]> {
     }
 }
 
-export default getAll;
+export default getAllBranches;
