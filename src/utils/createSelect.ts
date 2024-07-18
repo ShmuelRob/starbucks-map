@@ -1,7 +1,11 @@
 import countryOption from '../models/countryOption.model';
 import { alphaCode } from './getCountryAlphaCode';
 
-function createSelect(countries: countryOption[], onChange: (country: alphaCode) => Promise<void>) {
+function createSelect(
+    countries: countryOption[],
+    // eslint-disable-next-line
+    onChange: (country: alphaCode) => Promise<void>
+) {
     // create a select element
     const element = document.createElement('select');
     element.name = 'select country';
@@ -12,13 +16,15 @@ function createSelect(countries: countryOption[], onChange: (country: alphaCode)
     element.appendChild(option);
 
     // create an option for each country
-    countries.forEach((country: countryOption) => element.appendChild(createOption(country)));
+    countries.forEach((country: countryOption) =>
+        element.appendChild(createOption(country))
+    );
 
     // when the select element changes, call the onChange function with the selected country
     element.onchange = async (event) => {
         const selectedCountry = (event.target as HTMLSelectElement).value;
         await onChange(selectedCountry as alphaCode);
-    }
+    };
 
     return element;
 }
@@ -30,6 +36,5 @@ function createOption(country: countryOption) {
     option.text = country.label;
     return option;
 }
-
 
 export default createSelect;

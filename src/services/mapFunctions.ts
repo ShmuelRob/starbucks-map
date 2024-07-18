@@ -1,5 +1,5 @@
-import { Feature, Map, View } from 'ol'
-import { Tile as TileLayer, Vector as VectorLayer } from "ol/layer";
+import { Feature, Map, View } from 'ol';
+import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer';
 import { OSM } from 'ol/source';
 import { fromLonLat } from 'ol/proj';
 import VectorSource from 'ol/source/Vector';
@@ -7,10 +7,13 @@ import Branch from '../models/branch.model';
 import { Geometry, Point } from 'ol/geom';
 import { alphaCode } from '../utils/getCountryAlphaCode';
 import getCountryCoords from '../utils/getCountryCoords';
-import { booleanPointInPolygon, multiPolygon, point, polygon } from '@turf/turf';
+import {
+    booleanPointInPolygon,
+    multiPolygon,
+    point,
+    polygon,
+} from '@turf/turf';
 import { Position } from 'geojson';
-
-
 
 function createMap() {
     const map = new Map({
@@ -19,7 +22,7 @@ function createMap() {
         // add layers of points and the map
         layers: [
             new TileLayer({
-                source: new OSM()
+                source: new OSM(),
             }),
         ],
         // set where the map is centered and how much zoom
@@ -37,17 +40,22 @@ function createLayer() {
 
     // create a vector layer that will use the vector source
     const branchLayer = new VectorLayer({
-        source: vectorSource
+        source: vectorSource,
     });
     return branchLayer;
 }
 
-function getAllStores(layer: VectorLayer<Feature<Geometry>>, branches: Branch[]) {
+function getAllStores(
+    layer: VectorLayer<Feature<Geometry>>,
+    branches: Branch[]
+) {
     const features = branches.map(
         (branch: Branch) =>
             // create a feature with a point geometry and the branch as the feature's property
             new Feature({
-                geometry: new Point(fromLonLat([branch.longitude, branch.latitude])),
+                geometry: new Point(
+                    fromLonLat([branch.longitude, branch.latitude])
+                ),
                 branch: branch,
             })
     );
@@ -57,7 +65,11 @@ function getAllStores(layer: VectorLayer<Feature<Geometry>>, branches: Branch[])
     layer.getSource()?.addFeatures(features);
 }
 
-async function getStoresByCountry(layer: VectorLayer<Feature<Geometry>>, branches: Branch[], countryCode: alphaCode) {
+async function getStoresByCountry(
+    layer: VectorLayer<Feature<Geometry>>,
+    branches: Branch[],
+    countryCode: alphaCode
+) {
     // get the country's polygon from the API
     const country = await getCountryCoords(countryCode);
     if (!country) {
@@ -66,19 +78,28 @@ async function getStoresByCountry(layer: VectorLayer<Feature<Geometry>>, branche
     }
 
     // create a polygon or multipolygon from the country's coordinates
-    const countryPolygon = country.geometry.type === "Polygon"
-        ? polygon(country.geometry.coordinates as Position[][])
-        : multiPolygon(country.geometry.coordinates as Position[][][]);
+    const countryPolygon =
+        country.geometry.type === 'Polygon'
+            ? polygon(country.geometry.coordinates as Position[][])
+            : multiPolygon(country.geometry.coordinates as Position[][][]);
 
     // filter the branches to only include the ones in the country
     const filteredLocations = branches.filter((branch: Branch) => {
-        return country && booleanPointInPolygon(point([branch.longitude, branch.latitude]), countryPolygon.geometry);
-    })
+        return (
+            country &&
+            booleanPointInPolygon(
+                point([branch.longitude, branch.latitude]),
+                countryPolygon.geometry
+            )
+        );
+    });
     // create features from the filtered locations
     const features = filteredLocations.map(
         (branch: Branch) =>
             new Feature({
-                geometry: new Point(fromLonLat([branch.longitude, branch.latitude])),
+                geometry: new Point(
+                    fromLonLat([branch.longitude, branch.latitude])
+                ),
                 branch: branch,
             })
     );

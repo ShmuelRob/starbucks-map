@@ -1,45 +1,43 @@
-Map of the World with Starbucks Stores
-======================================
+# Map of the World with Starbucks Stores
 
 This project is a web application that displays a map of the world using the OpenLayers library, showcasing all Starbucks stores around the world. Users can also filter and view all the stores in a specific country.
 
-Features
---------
+## Features
 
-- Interactive world map
-- Display of all Starbucks stores globally
-- Option to filter stores by country
-- Developed with:
-  - TypeScript
-  - OpenLayers
-  - Turf.js
-  - GeoJSON
-  - Vite
+-   Interactive world map
+-   Display of all Starbucks stores globally
+-   Option to filter stores by country
+-   Developed with:
+    -   TypeScript
+    -   OpenLayers
+    -   Turf.js
+    -   GeoJSON
+    -   Vite
 
-Getting Started
----------------
+## Getting Started
 
 ### Prerequisites
 
 Ensure you have the following installed on your machine:
 
-- [Node.js](https://nodejs.org/) (version 14.x or higher)
-- [npm](https://www.npmjs.com/) (version 6.x or higher) or [yarn](https://yarnpkg.com/) (version 1.x or higher)
+-   [Node.js](https://nodejs.org/) (version 14.x or higher)
+-   [npm](https://www.npmjs.com/) (version 6.x or higher) or [yarn](https://yarnpkg.com/) (version 1.x or higher)
 
 ### Installation
 
 1. Clone the repository:
 
-   `git clone https://github.com/yourusername/starbucks-map.git cd starbucks-map`
+    `git clone https://github.com/yourusername/starbucks-map.git cd starbucks-map`
+
 2. Install the dependencies:
 
-   Using npm:
+    Using npm:
 
-   `npm install`
+    `npm install`
 
-   Using yarn:
+    Using yarn:
 
-   `yarn install`
+    `yarn install`
 
 ### Running the Project
 
@@ -55,15 +53,12 @@ Using yarn:
 
 After running the above command, you should see an output similar to:
 
-
 ```
 VITE vX.X.X  ready in X ms
 
   ➜  Local:   http://localhost:3000/
   ➜  Network: use --host to expose
 ```
-
- 
 
 Open your browser and navigate to `http://localhost:3000/` to see the application in action (or the port given to you).
 
@@ -81,39 +76,34 @@ Using yarn:
 
 The production-ready files will be output to the `dist` directory.
 
-Project Structure
------------------
+## Project Structure
 
-- `src/` - Contains the source code for the application
-  - `models/` - the models and types for the project
-  - `data/` - GeoJSON data for Starbucks stores
-  - `utils/` - Utility functions and helpers
-  - `services` - the open layer services
-- `public/` - Static assets
-- `index.html` - The main HTML file
-- `tsconfig.json` - TypeScript configuration file
+-   `src/` - Contains the source code for the application
+    -   `models/` - the models and types for the project
+    -   `data/` - GeoJSON data for Starbucks stores
+    -   `utils/` - Utility functions and helpers
+    -   `services` - the open layer services
+-   `public/` - Static assets
+-   `index.html` - The main HTML file
+-   `tsconfig.json` - TypeScript configuration file
 
-Dependencies
-------------
+## Dependencies
 
-- [TypeScript](https://www.typescriptlang.org/)
-- [OpenLayers](https://openlayers.org/)
-- [Turf.js](https://turfjs.org/)
-- [GeoJSON](https://geojson.org/)
-- [Vite](https://vitejs.dev/)
+-   [TypeScript](https://www.typescriptlang.org/)
+-   [OpenLayers](https://openlayers.org/)
+-   [Turf.js](https://turfjs.org/)
+-   [GeoJSON](https://geojson.org/)
+-   [Vite](https://vitejs.dev/)
 
-Contributing
-------------
+## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
 
-License
--------
+## License
 
 This project is licensed under the MIT License.
 
-Contact
--------
+## Contact
 
 For any inquiries or support, please contact me via github.
 

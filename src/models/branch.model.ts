@@ -5,6 +5,6 @@ interface Branch {
     longitude: number;
     latitude: number;
     store_id: number;
-    }
+}
 
 export default Branch;

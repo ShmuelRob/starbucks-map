@@ -2,29 +2,33 @@ import axios from 'axios';
 import { Position } from 'geojson';
 import getCountryAlphaCode, { alphaCode } from './getCountryAlphaCode';
 
-type countryCoords =  {
+type countryCoords = {
     id: string;
     properties: {
         name: string;
-    }
+    };
     geometry: {
         type: string;
         coordinates: Position[][] | Position[][][];
-    }
-}
+    };
+};
 
-
-
-async function getCountryCoords(countryAlpha2: alphaCode): Promise<countryCoords | null>  {
+async function getCountryCoords(
+    countryAlpha2: alphaCode
+): Promise<countryCoords | null> {
     try {
         // fetch the country boundaries from the API
-        const countries = (await axios.get(import.meta.env.VITE_COUNTRY_BOUNDARIES_URL)).data.features as countryCoords[];
-        const country = countries.find((c: countryCoords) => c.id == getCountryAlphaCode(countryAlpha2));
+        const countries = (
+            await axios.get(import.meta.env.VITE_COUNTRY_BOUNDARIES_URL)
+        ).data.features as countryCoords[];
+        const country = countries.find(
+            (c: countryCoords) => c.id == getCountryAlphaCode(countryAlpha2)
+        );
         if (country) {
             // return the country's coordinates
             return country;
         } else {
-            return null
+            return null;
         }
     } catch (error) {
         console.error('Error fetching countries:', error);

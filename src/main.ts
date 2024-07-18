@@ -1,10 +1,14 @@
-import './style.css'
+import './style.css';
 import getBranches from './data/getBranches';
 import getCountries from './data/getCountries';
 import createSelect from './utils/createSelect';
-import { createLayer, createMap, getAllStores, getStoresByCountry } from './services/mapFunctions';
+import {
+    createLayer,
+    createMap,
+    getAllStores,
+    getStoresByCountry,
+} from './services/mapFunctions';
 import { alphaCode } from './utils/getCountryAlphaCode';
-
 
 // get all branches
 const branches = await getBranches();
@@ -23,4 +27,6 @@ function getStoresByCountryWrapper(countryCode: alphaCode) {
 }
 
 // create a select element with all countries, and call getStoresByCountry when the selected country changes as callback
-document.getElementById('country-select-div')?.appendChild(createSelect(countryList, getStoresByCountryWrapper));
+document
+    .getElementById('country-select-div')
+    ?.appendChild(createSelect(countryList, getStoresByCountryWrapper));
